@@ -2,13 +2,20 @@
 It is a project for quick-start-development on Laravel-Typescript-VueJS base.
 The Project is configured using: 
 
+First you should do:
+
+````
+npm i && npm run dev
+````
+
 tsconfig.json
+
 ````
 {
     "compilerOptions": {
-        "moduleResolution": "node",
-        "module": "commonjs",
-        "target": "esNext",
+        "moduleResolution": "Node",
+        "module": "CommonJS",
+        "target": "ES2020",
         "noImplicitAny": false,
         "sourceMap": false,
         "emitDecoratorMetadata": true,
@@ -18,56 +25,15 @@ tsconfig.json
     "include": ["resources/ts/**/*"],
   }
 ````
-#
-and webpack.mix.js
+
+webpack.mix.js
+
 ````
 const mix = require('laravel-mix');
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .webpackConfig({
-        module: {
-            rules: [{
-                test: /\.tsx?$/,
-                loader: "ts-loader",
-                options: { appendTsSuffixTo: [/\.vue$/] },
-                exclude: /node_modules/,
-            }]
-        },
-        resolve: {
-            extensions: ["*", ".js", ".jsx", ".vue", ".ts", ".tsx"]
-        }
-    });
+mix.sass('resources/sass/app.scss', 'public/css')
+    .ts('resources/ts/app.ts', 'public/js');
 ````
-#
-The architecture of the resources folder:
-
-````
-resources/
-    js/
-        components/
-            MainApp.vue
-        app.js
-        bootstrap.js
-    lang/
-        ...
-    ts/
-        app.ts
-    views/
-        welcome.blade.php
-````
-#
-welcome.blade.php
-
-````
-<body>
-    <div id="app">
-        <main-app></main-app>
-    </div>
-    <script src="{{asset('js/app.js')}}"></script>
-</body>
-````
-All other files were not changed.
 
 If you have any question please ask Stack Overflow, becouse i am not better, than Stack Overflow)
 

@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "moduleResolution": "node",
-        "module": "commonjs",
-        "target": "esNext",
+        "moduleResolution": "Node",
+        "module": "CommonJS",
+        "target": "ES2020",
         "noImplicitAny": false,
         "sourceMap": false,
         "emitDecoratorMetadata": true,
